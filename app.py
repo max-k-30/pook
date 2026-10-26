@@ -15,19 +15,24 @@ data = json.load(pokedex)
 
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
+pokemen = {
+    "type": set()
+}
+def pokemons_names(items):
+    x = input("Which language do you perfer? ")
+    for index, item in enumerate(items):
+        if x.lower() == "english":
+            print(index, ":", item["name"]["english"])
+        if x.lower() == "french":
+            print(index, ":", item["name"]["french"])
+        if x.lower() == "chinese":
+             print(index, ":", item["name"]["chinese"])
+        if x.lower() == "japanese":
+            print(index, ":", item["name"]["japanese"])
 
-# def pokemons(items):
-#     x = input("Which language do you perfer? ")
-#     for index, item in enumerate(items):
-#         if x.lower() == "english":
-#             print(index, ":", item["name"]["english"])
-#         if x.lower() == "french":
-#             print(index, ":", item["name"]["french"])
-#         if x.lower() == "chinese":
-#              print(index, ":", item["name"]["chinese"])
-#         if x.lower() == "japanese":
-#             print(index, ":", item["name"]["japanese"])
-        
-# pokemons(data)
+def type_search(x):
+    y = input("Which pokemon type do you wish to search up? ")
 
-print(data)
+for x, data in enumerate(data):
+    pokemen["type"].update(data["type"])
+print(pokemen["type"])
