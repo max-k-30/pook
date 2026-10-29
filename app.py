@@ -22,7 +22,7 @@ pokemen_types = {
 
 z = {'english', 'french', 'japanese', 'chinese'}
 x = input("Which language do you perfer? ")
-if x.lower() not in z:
+while x.lower() not in z:
     print("That's not a valid language ")
     x = input("Which language do you perfer? ")
 for index, item in enumerate(data):
@@ -30,8 +30,9 @@ for index, item in enumerate(data):
 
 def type_search():
     y = input("Which pokemon type do you wish to search up? ")
-    if y.capitalize() not in data:
+    while y.capitalize() not in data:
         print("That's not a type!")
+        y = input("Which pokemon type do you wish to search up? ")
     for i in range(len(data)):
         if y.capitalize() in data[i]['type']:
             print (data[i]["name"][x.lower()])
