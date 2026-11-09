@@ -16,28 +16,40 @@ data = json.load(pokedex)
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
 
-pokemen_types = {
-    "type": set()
-}
+# pokemen_types = {
+#     "type": set()
+# }
 
 z = {'english', 'french', 'japanese', 'chinese'}
 x = input("Which language do you perfer? ")
 while x.lower() not in z:
     print("That's not a valid language ")
     x = input("Which language do you perfer? ")
-for index, item in enumerate(data):
-    print(index, ":", item['name'][x.lower()])
+for pokemon in data:
+    print(pokemon['name'][x.lower()])
+
+# def type_search():
+#     y = input("Which pokemon type do you wish to search up? ")
+#     while y.capitalize() not in data:
+#         print("That's not a type!")
+#         y = input("Which pokemon type do you wish to search up? ")
+#     for i in range(len(data)):
+#         if y.capitalize() in data[i]['type']:
+#             print (data[i]["name"][x.lower()])
+# type_search()
+
+# for x, data in enumerate(data):
+#     pokemen_types["type"].update(data["type"])
+# print(pokemen_types["type"]) 
 
 def type_search():
     y = input("Which pokemon type do you wish to search up? ")
-    while y.capitalize() not in data:
-        print("That's not a type!")
-        y = input("Which pokemon type do you wish to search up? ")
-    for i in range(len(data)):
-        if y.capitalize() in data[i]['type']:
-            print (data[i]["name"][x.lower()])
+    for pokemon in data:
+        if y.capitalize() in data:
+            for i in range (len(data)):
+                if y.capitalize() in data[i]['type']:
+                    print (data[i]["name"][x.lower()])
+        else:
+            print("That's not a type!")
+            y = input("Which pokemon type do you wish to search up? ")
 type_search()
-
-""" for x, data in enumerate(data):
-    pokemen_types["type"].update(data["type"])
-print(pokemen_types["type"]) """
