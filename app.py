@@ -28,7 +28,7 @@ while x.lower() not in z:
 for pokemon in data:
     print(pokemon['name'][x.lower()])
 
-# def type_search():
+# # def type_search():
 #     y = input("Which pokemon type do you wish to search up? ")
 #     while y.capitalize() not in data:
 #         print("That's not a type!")
@@ -43,13 +43,14 @@ for pokemon in data:
 # print(pokemen_types["type"]) 
 
 def type_search():
+    c = 0
     y = input("Which pokemon type do you wish to search up? ")
     for pokemon in data:
-        if y.capitalize() in data:
-            for i in range (len(data)):
-                if y.capitalize() in data[i]['type']:
-                    print (data[i]["name"][x.lower()])
+        if y.capitalize() in pokemon['type']:
+            print (pokemon["name"][x.lower()])
         else:
-            print("That's not a type!")
-            y = input("Which pokemon type do you wish to search up? ")
+            c += 1
+    if c == 809:
+        print("That's not a type")
+        y = input("Which pokemon type do you wish to search up? ")
 type_search()
