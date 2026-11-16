@@ -44,3 +44,16 @@ def type_search():
             print("That's not a type")
             y = input("Which pokemon type do you wish to search for?  ")
 type_search()
+
+def name_search():
+    finished = False
+
+    a = input('Which pokemon would you like to search? ')
+    for pokemon in data:
+        name = pokemon['name'][x.lower()]
+        if a.lower() in name.lower():
+            print(pokemon['name'][x.lower()])
+            finished = True
+    if finished == False:
+        print("no results were found!")
+name_search()
