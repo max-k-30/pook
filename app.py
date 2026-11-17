@@ -1,8 +1,10 @@
 import json
 ## Open the JSON file of pokemon data
 pokedex = open("./pokedex.json", encoding="utf8")
+pokedox = open('./moves.json', encoding='utf8')
 ## create variable "data" that represents the enitre pokedex list
 data = json.load(pokedex)
+dati = json.load(pokedox)
 # print(data[0])
 
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
@@ -20,6 +22,7 @@ data = json.load(pokedex)
 #     "type": set()
 # }
 
+
 z = {'english', 'french', 'japanese', 'chinese'}
 x = input("Which language do you perfer? ")
 while x.lower() not in z:
@@ -29,31 +32,39 @@ for pokemon in data:
     print(pokemon['name'][x.lower()])
 
 
+
 def type_search():
     finished = False
-    y = input("Which pokemon type do you wish to search for? ")
     while finished == False:
-        c = 0
+        y = input("Which pokemon type do you wish to search for? ")
         for pokemon in data:
             if y.capitalize() in pokemon['type']:
                 print (pokemon["name"][x.lower()])
                 finished = True
-            else:
-                c += 1
-        if c == 809:
+        if finished == False:
             print("That's not a type")
-            y = input("Which pokemon type do you wish to search for?  ")
-type_search()
+# type_search()
 
 def name_search():
     finished = False
+    while finished == False:
+        a = input('Which pokemon would you like to search? ')
+        for pokemon in data:
+            name = pokemon['name'][x.lower()]
+            if a.lower() in name.lower():
+                print(pokemon['name'][x.lower()])
+                finished = True
+        if finished == False:
+            print("No results were found!")
+# name_search()
 
-    a = input('Which pokemon would you like to search? ')
-    for pokemon in data:
-        name = pokemon['name'][x.lower()]
-        if a.lower() in name.lower():
-            print(pokemon['name'][x.lower()])
-            finished = True
-    if finished == False:
-        print("no results were found!")
-name_search()
+def potential_moves():
+    finished = False
+    while finished == False:
+        a = input('Which pokemon do you wish to know the potential moves of? ')
+        for i in range(len(data)):
+            if a.capitalize() in i['name'][x.lower()]:
+                
+                
+
+potential_moves()
