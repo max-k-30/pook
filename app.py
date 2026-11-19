@@ -42,8 +42,8 @@ def type_search():
                 print (pokemon["name"][x.lower()])
                 finished = True
         if finished == False:
-            print("That's not a type")
-type_search()
+            print("That is not a valid type! ")
+
 
 def name_search():
     finished = False
@@ -55,26 +55,30 @@ def name_search():
                 print(pokemon['name'][x.lower()])
                 finished = True
         if finished == False:
-            print("No results were found!")
-name_search()
+            print("No results were found for ", a, "!")
+
 
 def potential_moves():
     finished1 = False
     finished2 = False
-    while finished == False:
+    while finished1 == False and finished2 == False:
         type1 = input("Input the first type of your pokemon: ")
         type2 = input("Input the second type of your pokemon to see their available moves. If your pokemon does not have a second type, input first type: ")
         for i in range(len(dati)):
             if type1.capitalize() in dati[i]['type']:
                 print(dati[i]['ename'])
                 finished1 = True
-            if type2.capitalize() in dati[i]['type']:
+            if type1.capitalize() == type2.capitalize():
+                finished2 = True
+            elif type2.capitalize() in dati[i]['type']:
                 print(dati[i]['ename'])
                 finished2 = True
     if finished1 == False:
-            print('No results found for ' type! ')
+            print('No results found for', type1, '! ')
+    if finished2 == False:
+            print('No results found for', type2, '! ')
             
-
                 
-
+type_search()
+name_search()
 potential_moves()
